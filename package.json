@@ -14,7 +14,7 @@
     "@vue/cli": "^4.5.12",
     "@vue/eslint-config-typescript": "^7.0.0",
     "android-fastboot": "^1.0.6",
-    "core-js": "^3.6.5",
+    "core-js": "^3.9.1",
     "eslint-config-standard": "^16.0.2",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
