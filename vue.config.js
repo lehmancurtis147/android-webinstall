@@ -1,9 +1,9 @@
 module.exports = {
   publicPath:
-    process.env.NODE_ENV === "production"
-          ? '/android-webinstall/'
-          : "/",
+    '\'\'',
+
   transpileDependencies: ["vuetify"],
+
   chainWebpack: (config) => {
     config.plugin("html").tap((args) => {
           args[0].title = `${process.env.VUE_APP_OS_NAME} android-webinstall`;
@@ -13,4 +13,8 @@ module.exports = {
           return args;
        });
     },
+
+  pwa: {
+    name: 'android-webinstall'
+  }
 };

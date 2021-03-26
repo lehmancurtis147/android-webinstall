@@ -22,37 +22,30 @@ export default {
     RELEASE_VARIANTS: {
         teamWin: {
             description: "Official Team Win Recovery Project.",
-            suffix: "",
         },
         orangeFox: {
             description:
                 "Unofficial Orange Fox Recovery Project.",
-            suffix: "",
         },
         pitchBlack: {
             description:
                 "Unofficial Pitch Black Recovery Project.",
-            suffix: "",
         },
         skyHawk: {
             description:
                 "Unofficial Sky Hawk Recovery Project.",
-            suffix: "",
         },
         dark: {
             description:
                 "Unofficial Dark Recovery Project.",
-            suffix: "",
         },
         batik: {
             description:
                 "Unofficial Batik Recovery Project.",
-            suffix: "",
         },
         nusantara: {
             description:
                 "Unofficial Nusantara Recovery Project.",
-            suffix: "",
         },
     },
     DONATION_LINKS: [
