@@ -1,98 +1,68 @@
 <template>
-    <v-container class="d-flex justify-space-between flex-column flex-grow-1">
-        <div class="mt-n4 flex-grow-1" v-if="$root.$data.release !== null">
-            <h6 class="text-h6 pb-4">Install {{ $root.$data.OS_NAME }}</h6>
+<v-container class="d-flex justify-space-between flex-column flex-grow-1">
+    <div class="mt-n4 flex-grow-1" v-if="$root.$data.release !== null">
+        <h6 class="text-h6 pb-4">Install
+            {{ $root.$data.OS_NAME }}</h6>
 
-            <div class="text-body-1">
-                <p>
-                    This will install {{ $root.$data.OS_NAME }}
-                    {{ $root.$data.release.version
-                    }}{{
-                        $root.$data.RELEASE_VARIANTS[
-                            $root.$data.release.variant
-                        ].suffix
-                    }}
-                    on your
-                    {{ getDeviceName($root.$data.product) }}.
-                </p>
-                <p v-if="$root.$data.installType === 'clean'">
-                    Because you’re doing a clean install to switch from another
-                    OS,
-                    <strong class="red--text text--darken-3"
-                        >all data on your device will be permanently
-                        lost.</strong
-                    >
-                </p>
-                <p>
-                    <strong>Don’t touch, unplug, or press any buttons</strong>
-                    on your device during the install.
-                </p>
+        <div class="text-body-1">
+            <p>
+                This will install
+                {{ $root.$data.OS_NAME }}
+                {{ $root.$data.release.version
+                }}{{
+                    $root.$data.RELEASE_VARIANTS[
+                        $root.$data.release.variant
+                    ].suffix
+                }}
+                on your
+                {{ getDeviceName($root.$data.product) }}.
+            </p>
+            <p v-if="$root.$data.installType === 'clean'">
+                Because you’re doing a clean install to switch from another OS,
+                <strong class="red--text text--darken-3">all data on your device will be permanently lost.</strong >
+            </p>
+            <p>
+                <strong>Don’t touch, unplug, or press any buttons</strong>
+                on your device during the install.
+            </p>
+        </div>
+
+        <v-btn :color="installed ? null : 'primary'" :disabled="installProgress !== null" @click="install">Install</v-btn >
+    </div>
+
+    <div class="pb-8">
+        <v-banner single-line outlined rounded v-if="installed">
+            <v-icon slot="icon" color="green darken-3">mdi-check</v-icon>
+            <div class="my-4">
+                <span class="text-body-1 green--text text--darken-3">Installed
+                    {{ $root.$data.OS_NAME }}
+                    {{ $root.$data.release.version }}</span >
             </div>
+        </v-banner>
+        <v-banner single-line outlined rounded class="mt-8 pt-1" v-else-if="installProgress !== null">
+            <v-icon slot="icon" color="primary">{{
+                installStatusIcon
+            }}</v-icon>
+            <span class="text-body-1">{{ installStatus }}</span>
+            <v-progress-linear class="my-3" buffer-value="0" :value="installProgress" stream></v-progress-linear>
+        </v-banner>
+        <v-banner single-line outlined rounded class="mt-8" v-else-if="error">
+            <v-icon slot="icon" color="red darken-3">mdi-close</v-icon>
+            <div class="my-4">
+                <span class="text-body-1 red--text text--darken-3">{{
+                    error
+                }}</span>
+            </div>
+        </v-banner>
+    </div>
 
-            <v-btn
-                :color="installed ? null : 'primary'"
-                :disabled="installProgress !== null"
-                @click="install"
-                >Install</v-btn
-            >
-        </div>
-
-        <div class="pb-8">
-            <v-banner single-line outlined rounded v-if="installed">
-                <v-icon slot="icon" color="green darken-3">mdi-check</v-icon>
-                <div class="my-4">
-                    <span class="text-body-1 green--text text--darken-3"
-                        >Installed {{ $root.$data.OS_NAME }}
-                        {{ $root.$data.release.version }}</span
-                    >
-                </div>
-            </v-banner>
-            <v-banner
-                single-line
-                outlined
-                rounded
-                class="mt-8 pt-1"
-                v-else-if="installProgress !== null"
-            >
-                <v-icon slot="icon" color="primary">{{
-                    installStatusIcon
-                }}</v-icon>
-                <span class="text-body-1">{{ installStatus }}</span>
-                <v-progress-linear
-                    class="my-3"
-                    buffer-value="0"
-                    :value="installProgress"
-                    stream
-                ></v-progress-linear>
-            </v-banner>
-            <v-banner
-                single-line
-                outlined
-                rounded
-                class="mt-8"
-                v-else-if="error"
-            >
-                <v-icon slot="icon" color="red darken-3">mdi-close</v-icon>
-                <div class="my-4">
-                    <span class="text-body-1 red--text text--darken-3">{{
-                        error
-                    }}</span>
-                </div>
-            </v-banner>
-        </div>
-
-        <div class="d-flex justify-space-between flex-row-reverse">
-            <v-btn
-                color="primary"
-                @click="$bubble('nextStep')"
-                :disabled="installing || !installed"
-                >Next <v-icon dark right>mdi-arrow-right</v-icon></v-btn
-            >
-            <v-btn text @click="$bubble('prevStep')" :disabled="installing"
-                >Back</v-btn
-            >
-        </div>
-    </v-container>
+    <div class="d-flex justify-space-between flex-row-reverse">
+        <v-btn color="primary" @click="$bubble('nextStep')" :disabled="installing || !installed">Next
+            <v-icon dark right>mdi-arrow-right</v-icon>
+        </v-btn >
+        <v-btn text @click="$bubble('prevStep')" :disabled="installing">Back</v-btn >
+    </div>
+</v-container>
 </template>
 
 <style>

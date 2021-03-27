@@ -1,29 +1,28 @@
 <template>
-    <v-app id="inspire">
-        <v-main class="grey lighten-3">
-            <v-container fill-height>
-                <v-row align="center" justify="center">
-                    <v-col cols="12" sm="2"></v-col>
+<v-app id="inspire">
+    <v-main class="grey lighten-3">
+        <v-container fill-height>
+            <v-row align="center" justify="center">
+                <v-col cols="12" sm="2"></v-col>
 
-                    <v-col cols="12" sm="8" class="d-flex flex-row justify-center">
-                        <v-sheet
-                            :min-height="
-                                $vuetify.breakpoint.mobile ? '100vh' : '75vh'
-                            "
-                            width="50rem"
-                            :rounded="$vuetify.breakpoint.mobile ? null : 'lg'"
-                            :elevation="$vuetify.breakpoint.mobile ? 0 : 4"
-                            class="d-flex flex-column"
-                        >
-                            <Installer />
-                        </v-sheet>
-                    </v-col>
+                <v-col cols="12" sm="8" class="d-flex flex-row justify-center">
+                    <v-sheet
+                        :min-height="
+                            $vuetify.breakpoint.mobile ? '100vh' : '75vh'
+                        "
+                        width="50rem"
+                        :rounded="$vuetify.breakpoint.mobile ? null : 'lg'"
+                        :elevation="$vuetify.breakpoint.mobile ? 0 : 4"
+                        class="d-flex flex-column">
+                        <Installer/>
+                    </v-sheet>
+                </v-col>
 
-                    <v-col cols="12" sm="2"></v-col>
-                </v-row>
-            </v-container>
-        </v-main>
-    </v-app>
+                <v-col cols="12" sm="2"></v-col>
+            </v-row>
+        </v-container>
+    </v-main>
+</v-app>
 </template>
 
 <style>
