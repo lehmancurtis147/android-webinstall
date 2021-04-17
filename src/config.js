@@ -22,31 +22,31 @@ export default {
     RELEASE_VARIANTS: {
         teamWin: {
             description: "Official Team Win Recovery Project.",
-            url: "public/releases/files/",
+            suffix: "official",
         },
         orangeFox: {
             description: "Unofficial Orange Fox Recovery Project.",
-            url: "public/releases/files/",
+            suffix: "unofficial",
         },
         pitchBlack: {
             description: "Unofficial Pitch Black Recovery Project.",
-            url: "public/releases/files/",
+            suffix: "unofficial",
         },
         skyHawk: {
             description: "Unofficial Sky Hawk Recovery Project.",
-            url: "public/releases/files/",
+            suffix: "unofficial",
         },
         dark: {
             description: "Unofficial Dark Recovery Project.",
-            url: "public/releases/files/",
+            suffix: "unofficial",
         },
         batik: {
             description: "Unofficial Batik Recovery Project.",
-            url: "public/releases/files/",
+            suffix: "unofficial",
         },
         nusantara: {
             description: "Unofficial Nusantara Recovery Project.",
-            url: "public/releases/files/",
+            suffix: "unofficial",
         },
     },
     DONATION_LINKS: [
