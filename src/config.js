@@ -22,31 +22,31 @@ export default {
     RELEASE_VARIANTS: {
         teamWin: {
             description: "Official Team Win Recovery Project.",
-            url: "/android-webinstall/public/releases/files/",
+            url: "public/releases/files/",
         },
         orangeFox: {
             description: "Unofficial Orange Fox Recovery Project.",
-            url: "/android-webinstall/public/releases/files/",
+            url: "public/releases/files/",
         },
         pitchBlack: {
             description: "Unofficial Pitch Black Recovery Project.",
-            url: "/android-webinstall/public/releases/files/",
+            url: "public/releases/files/",
         },
         skyHawk: {
             description: "Unofficial Sky Hawk Recovery Project.",
-            url: "/android-webinstall/public/releases/files/",
+            url: "public/releases/files/",
         },
         dark: {
             description: "Unofficial Dark Recovery Project.",
-            url: "/android-webinstall/public/releases/files/",
+            url: "public/releases/files/",
         },
         batik: {
             description: "Unofficial Batik Recovery Project.",
-            url: "/android-webinstall/public/releases/files/",
+            url: "public/releases/files/",
         },
         nusantara: {
             description: "Unofficial Nusantara Recovery Project.",
-            url: "/android-webinstall/public/releases/files/",
+            url: "public/releases/files/",
         },
     },
     DONATION_LINKS: [
